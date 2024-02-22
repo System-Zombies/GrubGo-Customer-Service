@@ -1,4 +1,14 @@
 package com.example.GrubGoCustomerService.repository;
 
-public class CustomerRepository {
+import com.example.GrubGoCustomerService.model.Customer;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.Optional;
+
+public interface CustomerRepository
+        extends MongoRepository<Customer, String> {
+    Optional<Customer> findCustomerByEmail(String email);
+
+    void deleteById(String id);
+
 }
